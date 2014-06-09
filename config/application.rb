@@ -25,5 +25,11 @@ module Flix
     console do
       ActiveRecord::Base.connection
     end
+
+    config.generators do |g|
+      g.test_framework false
+    end
+
+    config.time_zone = 'Eastern Time (US & Canada)'
   end
 end

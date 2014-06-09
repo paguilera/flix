@@ -695,3 +695,103 @@ Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2014-05-30 12:42:59 -04
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-30 12:42:59 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE (released_on <= '2014-05-30 17:10:37.366718') ORDER BY released_on desc
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 5]]
+  Rendered movies/index.html.erb within layouts/application (63.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 183ms (Views: 142.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/catwoman.jpg" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/spiderman.jpg" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/batman.jpg" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2014-05-30 13:10:37 -0400
+
+
+Started GET "/assets/superman.jpg" for 127.0.0.1 at 2014-05-30 13:10:38 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140531193347)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140531193347"]]
+  [1m[36m (77.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('testuser@example.com') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('testuser@example.com') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 31 May 2014 19:44:48 UTC +00:00], ["email", "testuser@example.com"], ["name", "TestUser"], ["password_digest", "$2a$10$2LdcKn1WH4gi49sEWR2JQejvpugr2aYoacqox3aAo5Fj7bgslPOHm"], ["updated_at", Sat, 31 May 2014 19:44:48 UTC +00:00]]
+  [1m[35m (409.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2@example.com') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 31 May 2014 19:47:28 UTC +00:00], ["email", "user2@example.com"], ["name", "User2"], ["password_digest", "$2a$10$JMT693XU6W7DoI4ql9nvjuajbPH6b05lrcrVKYwfxe0KaD45cpHjy"], ["updated_at", Sat, 31 May 2014 19:47:28 UTC +00:00]]
+  [1m[35m (436.3ms)[0m  commit transaction
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'user2@example.com' LIMIT 1[0m
