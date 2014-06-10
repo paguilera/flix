@@ -44,6 +44,14 @@ describe "A user" do
     expect(user2.errors[:email].first).to eq("has already been taken")
   end
 
+  it "requires an username" do
+    user = User.new(username: "")
+
+    user.valid?
+
+    expect(user.errors[:username].any?).to be_true
+  end
+
   it "is valid with example attributes" do
     user = User.new(user_attributes)
 
