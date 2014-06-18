@@ -1,13 +1,18 @@
 require 'spec_helper'
 
 describe "Creating a new movie" do 
+  before do
+    admin = User.create!(user_attributes(admin: true))
+    sign_in(admin)
+  end
+    
   it "saves the movie and shows the new event's details" do    
     visit movies_url
     
     click_link 'Add New Movie'
     
     expect(current_path).to eq(new_movie_path)
-		
+    
     fill_in "Title", with: "New Movie Title"
     fill_in "Description", with: "Superheroes saving the world from villains"
     select "PG-13", :from => "movie_rating"
